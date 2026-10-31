@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team 25: Wireless Power Transfer for a Cardiac Support Device</title>
+<style>
+:root{--tan:#E4D7BF;--tan2:#EDE3D1;--bur:#6B2C35;--blk:#1E1B19;--clay:#4F6475;--rule:rgba(30,27,25,.25)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tan);color:var(--blk);font:17px/1.6 Georgia,"Bitstream Charter",serif}
+.wrap{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+.kick{font:600 14px/1.4 system-ui,"Inter",sans-serif;color:var(--clay)}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1;margin:10px 0 6px}
+.who{font:15px/1.5 system-ui,"Inter",sans-serif;margin:0 0 26px}
+h2{font-size:24px;margin:48px 0 10px;padding-top:14px;border-top:3px solid var(--bur)}
+h3{font:700 15px/1.4 system-ui,"Inter",sans-serif;color:var(--bur);margin:22px 0 4px}
+p{margin:0 0 14px}
+.apply{background:var(--tan2);border-left:5px solid var(--bur);padding:16px 18px;margin:26px 0;font:16px/1.5 system-ui,"Inter",sans-serif}
+.btn{display:inline-block;background:var(--bur);color:#fff;text-decoration:none;padding:10px 18px;border-radius:3px;font-weight:600;margin-top:8px}
+figure{margin:28px 0} figure img{width:100%;mix-blend-mode:multiply;border:1px solid var(--rule)}
+.diag{width:100%;height:auto}
+figcaption{font:13px system-ui,"Inter",sans-serif;color:var(--clay);margin-top:6px}
+table{width:100%;border-collapse:collapse;font:15px/1.45 system-ui,"Inter",sans-serif;margin:8px 0 6px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px 8px 0;border-bottom:1px solid var(--rule)}
+th{color:var(--bur);font-weight:700}
+td:first-child{white-space:nowrap;font-weight:600;padding-right:16px}
+ol.refs{font:13px/1.5 system-ui,"Inter",sans-serif;padding-left:22px}
+nav{font:14px system-ui,"Inter",sans-serif;margin:0 0 6px} nav a{color:var(--clay);margin-right:14px}
+a{color:var(--bur)}
+footer{margin-top:56px;font:13px system-ui,"Inter",sans-serif;color:var(--clay)}
+</style></head><body><div class="wrap">
+<div class="kick">Calit2 Interdisciplinary Research Teams &middot; Team 25 &middot; January&ndash;May 2027</div>
+<h1>Wireless Power Transfer for a Cardiac Support Device</h1>
+<p class="who">Graduate student lead: Anthony Agnew &middot; Faculty advisor: Prof. Arash Kheradvar &middot; UCI Samueli School of Engineering</p>
+<nav><a href="#summary">Summary</a><a href="#roles">Roles</a><a href="#timeline">Timeline</a><a href="#proposal">Full proposal</a></nav>
+
+<div class="apply"><b>We&rsquo;re looking for 2 undergraduates.</b> Electrical, mechanical, BME, and statistics majors are welcome. Apply through the Calit2 IRT student application by <b>November 11</b> and rank Team 25 first.<br>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Open the application</a><br><span style="font-size:14px">Questions: aagnew@uci.edu</span></div>
+
+<section id="summary"><h2>Summary</h2>
+<p>Approximately one in four individuals will develop heart failure (HF) in their lifetime, with HF accounting for an estimated $32 billion in direct medical costs in the US. One solution is left ventricular assist devices, but they use drivelines that pierce the abdomen, which often become infected.</p>
+<p>This project will utilize wireless power transfer (6.78 MHz) across tissue to develop a cardiac assist device that is fully implantable, removing that driveline. Our lab has already developed the basic framework (45% DC-to-DC efficiency, with coil Q-factor of ~10), but we still need help answering a hard question. Can relay-coils and custom-designed coils lead to greater efficiency and misalignment robustness while ensuring that thermal generation and electromagnetic interference (EMI) do not exceed unsafe levels? The project will be interdisciplinary, covering mechanical design, electrical RF power transfer, medical-regulatory compliance, and statistical analysis for experimental design.</p>
+<p>The undergraduates will design a set of coils to improve Q-factor from 10 to 50, determine if or how many relay coils to use, design and 3D print a 6-axis misalignment test jig, and validate the project for thermal/EMI safety. The project will be presented at the May Symposium and integrated into a future paper for a driveline-free cardiac support device.</p>
+<figure><svg class="diag" role="img" aria-label="Transmitter coil above tissue sending power to an implanted receiver coil" viewBox="0 0 660 300">
+  <!-- tissue layers -->
+  <rect x="40" y="112" width="580" height="16" fill="#C9A99A"/>
+  <rect x="40" y="128" width="580" height="30" fill="#B98C82"/>
+  <rect x="40" y="158" width="580" height="36" fill="#A7766E"/>
+  <line x1="40" y1="112" x2="620" y2="112" stroke="#1E1B19" stroke-width="1.2"/>
+  <!-- field lines -->
+  <g fill="none" stroke="#6B2C35" stroke-width="1.6" opacity=".85">
+    <path d="M250 70 C 190 120, 190 200, 250 240" stroke-dasharray="5 5"/>
+    <path d="M410 70 C 470 120, 470 200, 410 240" stroke-dasharray="5 5"/>
+    <path d="M285 72 C 255 120, 255 195, 285 238" stroke-dasharray="5 5"/>
+    <path d="M375 72 C 405 120, 405 195, 375 238" stroke-dasharray="5 5"/>
+    <path d="M330 74 L 330 236" stroke-dasharray="5 5"/>
+  </g>
+  <!-- Tx coil (cross-section) -->
+  <g fill="#4F6475">
+    <rect x="225" y="52" width="210" height="8" rx="4" fill="#1E1B19"/>
+    <circle cx="245" cy="72" r="7"/><circle cx="265" cy="72" r="7"/><circle cx="285" cy="72" r="7"/>
+    <circle cx="375" cy="72" r="7"/><circle cx="395" cy="72" r="7"/><circle cx="415" cy="72" r="7"/>
+  </g>
+  <!-- Rx coil -->
+  <g fill="#4F6475">
+    <circle cx="260" cy="238" r="6"/><circle cx="278" cy="238" r="6"/><circle cx="296" cy="238" r="6"/>
+    <circle cx="364" cy="238" r="6"/><circle cx="382" cy="238" r="6"/><circle cx="400" cy="238" r="6"/>
+    <rect x="245" y="250" width="170" height="7" rx="3.5" fill="#1E1B19"/>
+  </g>
+  <!-- heart -->
+  <g transform="translate(520,236)">
+    <path d="M0 18 C -26 0, -22 -20, -8 -20 C -2 -20, 0 -14, 0 -12 C 0 -14, 2 -20, 8 -20 C 22 -20, 26 0, 0 18 Z" fill="none" stroke="#6B2C35" stroke-width="2.2"/>
+  </g>
+  <path d="M415 254 C 450 270, 480 262, 500 244" fill="none" stroke="#1E1B19" stroke-width="1.2"/>
+  <!-- labels -->
+  <g font-family="Inter" font-size="12" letter-spacing="2" fill="#1E1B19">
+    <text x="452" y="77">TRANSMITTER</text>
+    <text x="452" y="100" fill="#4F6475">6.78 MHz</text>
+    <text x="48" y="178" fill="#E4D7BF">TISSUE</text>
+    <text x="150" y="243">RECEIVER</text>
+  </g>
+</svg><figcaption>How it works: a transmitter coil outside the body sends power at 6.78 MHz through tissue to a receiver coil implanted with the device.</figcaption></figure>
+<figure><img src="coil.png" alt="ANSYS model of a planar spiral receiver coil"><figcaption>Our receiver coil model in ANSYS. Redesigning coils like this one is the first part of the project.</figcaption></figure>
+</section>
+
+<section id="roles"><h2>Roles</h2>
+<table><tr><th>Person</th><th>Owns</th><th>Skills gained</th></tr>
+<tr><td>Undergrad 1</td><td>Coil design, Q-factor, thermal validation</td><td>RF design, KiCad, VNA, regulatory testing</td></tr>
+<tr><td>Undergrad 2</td><td>Misalignment jig and DOE, relay coils (n-coils), EMI</td><td>SolidWorks, design of experiments, statistics, BME safety</td></tr>
+<tr><td>Grad lead</td><td>Experimental design, integration, safety, statistics</td><td>Mentoring, project management</td></tr>
+<tr><td>Faculty advisor</td><td>Oversight, lab resources, approvals</td><td></td></tr></table>
+<h3>How you&rsquo;ll be mentored</h3>
+<p>Mentoring will follow a learning-first approach with emphasis on the theoretical models behind electro-mechanical design. Weekly team meetings are used to foster collaboration, and weekly one-on-ones provide guidance. Students will set major goals within the first week, then complete a mid-point review in March and a final reflection in May. Each student will bring a physical lab notebook to check-ins to present data, showcase reflections, and plan the upcoming week against their original goals. Students will be taught through a skill ladder (watch, then together, then alone, then teach the other student), will be fully trained by Feb. 1, and will present at the May symposium.</p>
+</section>
+
+<section id="timeline"><h2>Timeline</h2>
+<table><tr><th>Date</th><th>Milestone</th></tr>
+<tr><td>Jan 16</td><td>Students onboarded (lab safety, basic tools and setup); start researching coil designs. Misalignment jig designed in CAD; Coil V1 ordered.</td></tr>
+<tr><td>Feb 15</td><td>Coil V1 received, Q measured loaded and unloaded; jig printed. Coil V2 based on V1 data; 2-coil vs. multi-coil at nominal alignment.</td></tr>
+<tr><td>Mar 13</td><td>Q target (&ge;50) reached; n-coil comparison finished. Misalignment matrix (25&deg;, 2.5 cm lateral, 3 cm vertical); winter progress report.</td></tr>
+<tr><td>Apr 10</td><td>EMI testing (atrial detection, inhibition, Bluetooth) at 10 W.</td></tr>
+<tr><td>May 1</td><td>Thermal testing finished (&le;2 &deg;C over 90 min at &ge;10 W).</td></tr>
+<tr><td>May 30</td><td>Analysis finished; coil design and n recommendation delivered to the lab; final report and presentations.</td></tr></table>
+</section>
+
+<section id="proposal"><h2>Full proposal</h2>
+<h3>Introduction</h3>
+<p>Approximately one in four individuals will develop heart failure (HF) in their lifetime, with HF accounting for an estimated $32 billion in direct medical costs in the US [1]. Heart transplantation increased by over 100% from 2012 to 2023 with more than 4,500 hearts annually, yet growth remains insufficient for demand [2][3]. One solution to this pressing need for advanced therapeutic treatment is durable left ventricular assist devices (LVADs), with ~2,500 implanted in 2022 [4]. However, drivelines are prone to infection; one option is to remove the driveline to have a fully implantable LVAD, wherein wireless power transfer (WPT) occurs across the abdomen [5][6][7].</p>
+<h3>Central question and objectives</h3>
+<p>Will using relay coils and custom-designed coils lead to greater efficiency and misalignment robustness? Will hardware improvements ensure that thermal generation and electromagnetic interference do not exceed unsafe levels?</p>
+<table><tr><th>Metric</th><th>Current baseline</th><th>Target</th></tr>
+<tr><td>Coil efficiency</td><td>~60%</td><td>&gt;80%</td></tr>
+<tr><td>Coil Q-factor</td><td>10</td><td>50</td></tr>
+<tr><td>n-coils</td><td>n = 3</td><td>Test n = 2, 3, 4 and pick the best</td></tr>
+<tr><td>Thermal</td><td>&lt;2 &deg;C at steady state, 5 W received</td><td>&lt;2 &deg;C at steady state, 10 W received</td></tr>
+<tr><td>EMI</td><td>Poor atrial detection</td><td>100% atrial event detection</td></tr>
+<tr><td>Misalignment</td><td>Efficiency drop &lt;15% for 15&deg; rotation on all axes, 2.5 cm lateral, 1 cm vertical</td><td>Efficiency drop &lt;10% for 25&deg; rotation on all axes, 2.5 cm lateral, 3 cm vertical</td></tr></table>
+<h3>Methods and work plan</h3>
+<p>Our lab has created a basic framework using off-the-shelf components that may be built upon. We can convert 12 W DC, continuously transfer power across tissue, and receive 5.5 W DC at the battery. Unfortunately, system efficiency remains low (45%) compared to the existing literature (&ge;85%), and the system produces EMI.</p>
+<p>The undergraduates will design a set of coils that increase our Q-factor from 10 to 50, as measured by a VNA at 6.78 MHz, using multiple design levers: conductor type, turn spacing, coil diameter, and turn count. These coils, along with the addition of relay coils (n-coils), will be tested for Q-factor, DC-to-DC efficiency, and coil-to-coil efficiency (&ge;80%). The undergraduates will design and 3D print a 6-axis misalignment jig that allows defined lateral (0&ndash;2.5 cm), vertical (0&ndash;3 cm), and angular (0&ndash;25&deg;) offsets. EMI will be tested on the final configuration using our Raspberry Pi atrial-signal simulator feeding a Medtronic dual-chamber temporary pacemaker, with WPT at full power and Bluetooth telemetry active. Results will be measured on an oscilloscope over &ge;100 beats to detect inhibition and validated against ISO 14117. Thermal safety will be validated as a temperature rise &le;2 &deg;C in ex vivo porcine tissue at &ge;10 W power transfer, in a warm-air oven at 38 &deg;C, using fiber-optic probes at the receiver surface and inside the tissue.</p>
+<p>Backup plans are prepared. If Q = 50 is not achieved, we will replicate coils from other laboratories or continue using off-the-shelf coils. If choosing the number of coils becomes unwieldy, a standard 2-coil design may be used. EMI and thermal protocols have previously been conducted by the lab. A statistical analysis including DOE and gauge R&amp;R will determine our variances and define the reliability and reproducibility of our setup.</p>
+<h3>Interdisciplinary approach</h3>
+<p>This project spans hardware electronics (coil and relay design), mechanical design (misalignment jig), statistics (DOE and gauge R&amp;R), and medicine and safety (thermal limits, EMI). These fields are interlocked and often carry competing design interests; for example, increasing the number of relay coils will generally increase overall efficiency but may decrease reproducibility and carry greater safety risks.</p>
+<h3>Expected outcomes</h3>
+<p>Students will create a reusable n-coil WPT architecture with custom coil Q = 50 and &ge;80% coil-to-coil efficiency, validated for reliability across 6-axis misalignment and for thermal and EMI safety. The students&rsquo; work will be presented at the May symposium and integrated into a future paper on the lab&rsquo;s driveline-free cardiac support device.</p>
+<h3>References</h3>
+<ol class="refs">
+<li>G. C. Fonarow et al., &ldquo;HF STATS 2025: Heart Failure Epidemiology and Outcomes Statistics,&rdquo; <i>J. Card. Fail.</i>, vol. 32, no. 2, pp. 439&ndash;498, 2026.</li>
+<li>L. Palaniappan and S. Khan, &ldquo;Heart Disease and Stroke Statistics: A Report of US and Global Data From the American Heart Association,&rdquo; <i>Circulation</i>, vol. 153, 2026.</li>
+<li>M. M. Colvin et al., &ldquo;OPTN/SRTR 2024 Annual Data Report: Heart,&rdquo; HRSA, 2024.</li>
+<li>U. P. Jorde et al., &ldquo;The Society of Thoracic Surgeons Intermacs 2023 Annual Report,&rdquo; <i>Ann. Thorac. Surg.</i>, vol. 117, no. 1, pp. 33&ndash;44, 2024.</li>
+<li>M. Kranzl et al., &ldquo;Driveline Features as Risk Factor for Infection in Left Ventricular Assist Devices,&rdquo; <i>Front. Cardiovasc. Med.</i>, vol. 8, 784208, 2021.</li>
+<li>A. Nayak et al., &ldquo;The Society of Thoracic Surgeons Intermacs 2025 Annual Report,&rdquo; <i>Ann. Thorac. Surg.</i>, vol. 121, no. 1, pp. 15&ndash;38, 2026.</li>
+<li>Goodman et al., &ldquo;Left ventricular assist devices: A historical perspective at the intersection of medicine and engineering,&rdquo; <i>Artificial Organs</i>, 2022.</li>
+</ol>
+</section>
+
+<div class="apply"><b>Apply by November 11.</b> Use the Calit2 IRT student application and rank Team 25 first. Program details are on the <a href="https://calit2.uci.edu/irt/">Calit2 IRT page</a>.<br><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Open the application</a></div>
+<footer>Kheradvar Lab &middot; UCI Samueli School of Engineering &middot; aagnew@uci.edu</footer>
+</div></body></html>
