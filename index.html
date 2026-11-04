@@ -24,6 +24,16 @@ td:first-child{white-space:nowrap;font-weight:600;padding-right:16px}
 ol.refs{font:13px/1.5 system-ui,"Inter",sans-serif;padding-left:22px}
 nav{font:14px system-ui,"Inter",sans-serif;margin:0 0 6px} nav a{color:var(--clay);margin-right:14px}
 a{color:var(--bur)}
+.modal{border:1.5px solid var(--bur);border-radius:6px;background:#EFE7D8;color:var(--blk);padding:22px 22px 18px;max-width:420px;width:calc(100% - 32px);font:16px/1.5 system-ui,"Inter",sans-serif}
+.modal::backdrop{background:rgba(30,27,25,.45)}
+.modal h3{margin:0 0 6px;font:700 20px/1.3 Georgia,serif;color:var(--blk)}
+.modal .remind{color:var(--bur);font-weight:700;margin:0 0 14px}
+.modal label{display:block;font-size:14px;font-weight:600;margin:10px 0 4px}
+.modal input{width:100%;padding:9px 10px;border:1px solid var(--rule);border-radius:3px;font:16px system-ui,sans-serif;background:#fff;color:var(--blk)}
+.modal .note{font-size:12.5px;color:var(--clay);margin:12px 0 0}
+.modal .row{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.modal .btn{border:0;cursor:pointer;font:600 16px system-ui,sans-serif;margin-top:0}
+.modal .skip{font-size:14px;color:var(--clay)}
 footer{margin-top:56px;font:13px system-ui,"Inter",sans-serif;color:var(--clay)}
 </style></head><body><div class="wrap">
 <div class="kick">Calit2 Interdisciplinary Research Teams &middot; Team 25 &middot; January&ndash;May 2027</div>
@@ -32,7 +42,7 @@ footer{margin-top:56px;font:13px system-ui,"Inter",sans-serif;color:var(--clay)}
 <nav><a href="#summary">Summary</a><a href="#roles">Roles</a><a href="#timeline">Timeline</a><a href="#proposal">Full proposal</a></nav>
 
 <div class="apply"><b>We&rsquo;re looking for 2 undergraduates.</b> Electrical, mechanical, BME, and statistics majors are welcome. Apply through the Calit2 IRT student application by <b>November 11</b> and rank Team 25 first.<br>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Open the application</a><br><span style="font-size:14px">Questions: aagnew@uci.edu</span></div>
+<a class="btn js-apply" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Open the application</a><br><span style="font-size:14px">Questions: aagnew@uci.edu</span></div>
 
 <section id="summary"><h2>Summary</h2>
 <p>Approximately one in four individuals will develop heart failure (HF) in their lifetime, with HF accounting for an estimated $32 billion in direct medical costs in the US. One solution is left ventricular assist devices, but they use drivelines that pierce the abdomen, which often become infected.</p>
@@ -132,8 +142,42 @@ footer{margin-top:56px;font:13px system-ui,"Inter",sans-serif;color:var(--clay)}
 </ol>
 </section>
 
-<div class="apply"><b>Apply by November 11.</b> Use the Calit2 IRT student application and rank Team 25 first. Program details are on the <a href="https://calit2.uci.edu/irt/">Calit2 IRT page</a>.<br><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Open the application</a></div>
+<div class="apply"><b>Apply by November 11.</b> Use the Calit2 IRT student application and rank Team 25 first. Program details are on the <a href="https://calit2.uci.edu/irt/">Calit2 IRT page</a>.<br><a class="btn js-apply" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Open the application</a></div>
 <footer>Kheradvar Lab &middot; UCI Samueli School of Engineering &middot; aagnew@uci.edu</footer>
-<script data-goatcounter="https://anthonyaagnew.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<dialog class="modal" id="applyModal" aria-labelledby="applyTitle">
+<form id="applyForm">
+<h3 id="applyTitle">Before you apply</h3>
+<p class="remind">Remember to select Team 25 on the next page!</p>
+<label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required>
+<label for="fMajor">Major</label><input id="fMajor" name="major" type="text" autocomplete="off" required>
+<p class="note">We save your email and major so we can follow up about Team 25, even if you don&rsquo;t finish the application. We use them only for this project and delete them after the program ends.</p>
+<div class="row"><button class="btn" type="submit">Continue to application</button><a class="skip" href="https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform">Skip and go to the application</a></div>
+</form></dialog>
+<script>
+(function(){
+  var IRT_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSdigQpMCIorCTiZIK2ifH3EiVzHXsVpIK4ono7wv72gOQYusg/viewform";
+  var SIGNUP_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScsEuk9ubpGC049nGuwr_fFDWNwnSxY3PLuld2z7RtkAIRvLg/formResponse";
+  var ENTRY_EMAIL = "entry.1799484360";
+  var ENTRY_MAJOR = "entry.1317120025";
+  var modal = document.getElementById("applyModal");
+  var form = document.getElementById("applyForm");
+  if (!modal || typeof modal.showModal !== "function") return;  // old browsers: buttons stay plain links
+  document.querySelectorAll(".js-apply").forEach(function(a){
+    a.addEventListener("click", function(e){ e.preventDefault(); modal.showModal(); });
+  });
+  modal.addEventListener("click", function(e){ if (e.target === modal) modal.close(); });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var go = function(){ window.location.href = IRT_FORM; };
+    if (ENTRY_EMAIL.indexOf("_ID") !== -1) { go(); return; }
+    var body = new URLSearchParams();
+    body.append(ENTRY_EMAIL, document.getElementById("fEmail").value.trim());
+    body.append(ENTRY_MAJOR, document.getElementById("fMajor").value.trim());
+    var t = setTimeout(go, 1500);
+    fetch(SIGNUP_ACTION, {method:"POST", mode:"no-cors", keepalive:true, body:body})
+      .then(function(){ clearTimeout(t); go(); }, function(){ clearTimeout(t); go(); });
+  });
+})();
+</script>
+<script data-goatcounter="https://anthonyaagnew.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </div></body></html>
